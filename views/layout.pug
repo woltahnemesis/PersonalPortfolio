@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/main.css')
+  body
+    div
+      ul
+        li
+          a(href='index')
+            |Home
+        li
+          a(href= 'aboutme')
+            |About Me
+        li
+          a(href= 'contact')
+            |Contact
+        li
+          a(href= 'project')
+            |Projects
+        li
+          a(href= 'service')
+            |Services
+    block content
