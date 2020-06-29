@@ -30,13 +30,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.js" />
-    <Content Include="routes\project.js" />
-    <Content Include="routes\service.js" />
-    <Content Include="routes\contact.js" />
     <Content Include="routes\index.js" />
-    <Content Include="routes\aboutme.js">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="routes\users.js" />
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
