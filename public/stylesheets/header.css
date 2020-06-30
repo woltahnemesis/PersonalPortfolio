@@ -1,0 +1,24 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+}
+
+ul li {
+    list-style: none;
+    padding: 0 1em;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+ul li a:hover{
+    color: #028cc2;
+}

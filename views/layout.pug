@@ -1,10 +1,20 @@
+//File Name: PersonalPortfolio
+//Author's Name: Walter Magbanua
+//Website Name: Web Portfolio
+//Description: This website is a web portfolio and has 5 different pages (Home, About Me, Contact Me, Services, & Projects).
+
 doctype html
 html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='/stylesheets/header.css')
   body
-    div
+    header
+      
+      div
+        h2 Web Portfolio
+      // Navigation bar
       ul
         li
           a(href='index')
@@ -14,7 +24,7 @@ html
             |About Me
         li
           a(href= 'contact')
-            |Contact
+            |Contact Me
         li
           a(href= 'project')
             |Projects
