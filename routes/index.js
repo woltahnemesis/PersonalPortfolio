@@ -1,14 +1,10 @@
-/* 
-File Name: PersonalPortfolio
-Author's Name: Walter Magbanua
-Website Name: Web Portfolio
-Description: This website is a web portfolio and has 5 different pages (Home, About Me, Contact Me, Services, & Projects).
-*/
-  
-
-'use strict';
+  'use strict';
 var express = require('express');
 var router = express.Router();
+var nodemailer = require('nodemailer');
+var bodyParser = require('body-parser');
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -22,7 +18,7 @@ router.get('/aboutme', function (req, res) {
 
 /* GET contact page. */
 router.get('/contact', function (req, res) {
-    res.render('contact', { title: 'Contact Me' });
+    res.render('contact');
 });
 
 /* GET projects page. */
@@ -33,6 +29,39 @@ router.get('/project', function (req, res) {
 /* GET services page. */
 router.get('/service', function (req, res) {
     res.render('service', { title: 'Services' });
+});
+
+/* POST method for Contact Form */
+router.post('/contact', urlencodedParser, function (req, res) {
+    console.log(req.body);
+    res.render('contact');
+    var email = req.body.fromEmail;
+    var password = req.body.password;
+    var message = req.body.message;
+    
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: email,
+            pass: password
+        }
+    });
+
+    var mailOptions = {
+        from: email,
+        to: 'alucardmagbanua@gmail.com',
+        subject: 'Sending Email using Node.js',
+        text: message
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+   
 });
 
 module.exports = router;

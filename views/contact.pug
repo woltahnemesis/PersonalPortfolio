@@ -1,10 +1,34 @@
 extends layout
 
 block content
-  h1= title
-  p You can contact me through my phone number and email.
-  // Creates underline decoration
-  p(style='text-decoration: underline;') alucardmagbanua@gmail.com
-  p(style='text-decoration: underline;') 289 231 7753
+  h1 Contact Me
+  div(class='contact-div')
+    p You can contact me through my phone number and email. 
+    |Only valid 
+    strong GMAIL 
+    |email account (YAHOO, AOL, Outlook, and etc. won't work) can email me.
+    br
+    |You have to allow 
+    a(href='https://myaccount.google.com/lesssecureapps') less secure apps to access account
+    | setting in your google account.
+    br
+    |You need to make sure that 2 factor authentication for the account is disabled. You can check how to disable it 
+    a(href='https://support.google.com/accounts/answer/1064203') here.
+   
+    form(method='POST' action='' onsubmit='submitMsg()')
+        div(class='form-group')
+            label(for='fromEmail') From: 
+            br
+            input(type='email' name='fromEmail' id='fromEmail')
+        div(class='form-group')
+            label(for='password') Password: 
+            br
+            input(type='password' name='password' id='password')
+        div(class='form-group')
+            label(form='message') Message: 
+            br
+            textarea(name='message' id='message')
+        input(type='submit' value='submit' name='btn-submit' id='btn-submit')
+  
 
   include footer
